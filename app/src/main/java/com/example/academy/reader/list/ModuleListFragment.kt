@@ -21,7 +21,7 @@ import com.example.academy.vo.Status
 import kotlinx.android.synthetic.main.fragment_module_list.*
 
 
-class ModuleListFragment : Fragment(), MyAdapterClickListener {
+class ModuleListFragment : Fragment(), ModuleListAdapter.MyAdapterClickListener {
 
     companion object {
         val TAG = ModuleListFragment::class.java.simpleName
@@ -70,6 +70,7 @@ class ModuleListFragment : Fragment(), MyAdapterClickListener {
 
     override fun onItemClicked(position: Int, moduleId: String) {
         courseReaderCallback.moveTo(position, moduleId)
+        viewModel.setSelectedModule(moduleId)
     }
 
     private fun populateRecyclerView(modules: List<ModuleEntity>) {

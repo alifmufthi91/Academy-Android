@@ -17,6 +17,10 @@ class CourseReaderViewModel(private val academyRepository: AcademyRepository) : 
         this.courseId.value = courseId
     }
 
+    fun setSelectedModule(moduleId: String) {
+        this.moduleId.value = moduleId
+    }
+
     var modules: LiveData<Resource<List<ModuleEntity>>> = Transformations.switchMap(courseId) { mCourseId ->
         academyRepository.getAllModulesByCourse(mCourseId)
     }
