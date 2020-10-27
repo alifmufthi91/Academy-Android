@@ -1,6 +1,7 @@
 package com.example.academy.data.source
 
 import androidx.lifecycle.LiveData
+import androidx.paging.PagedList
 import com.example.academy.data.source.local.entity.CourseEntity
 import com.example.academy.data.source.local.entity.CourseWithModule
 import com.example.academy.data.source.local.entity.ModuleEntity
@@ -8,9 +9,9 @@ import com.example.academy.vo.Resource
 
 interface AcademyDataSource {
 
-    fun getAllCourses(): LiveData<Resource<List<CourseEntity>>>
+    fun getAllCourses(): LiveData<Resource<PagedList<CourseEntity>>>
 
-    fun getBookmarkedCourses(): LiveData<List<CourseEntity>>
+    fun getBookmarkedCourses(): LiveData<PagedList<CourseEntity>>
 
     fun getCourseWithModules(courseId: String): LiveData<Resource<CourseWithModule>>
 
